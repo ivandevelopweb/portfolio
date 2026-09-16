@@ -44,9 +44,9 @@ export type SiteContent = {
 };
 
 const english: SiteContent = {
-  documentTitle: "Ivan - Digital Solutions Architect",
+  documentTitle: "Ivan Web Development — Digital Solutions Architect",
   description:
-    "Portfolio of Ivan — Full-stack developer crafting high-performance digital solutions and premium web experiences.",
+    "Ivan Web Development portfolio — full-stack developer crafting high-performance digital solutions, conversion-driven landing pages, and premium web experiences.",
   nav: ["HOME", "ABOUT", "WORK", "OFFER", "GET IN TOUCH"],
   badge: "Fullstack developer",
   greeting: "Hello, World! I'm",
@@ -189,9 +189,9 @@ const english: SiteContent = {
 };
 
 const ukrainian: SiteContent = {
-  documentTitle: "Іван — Архітектор цифрових рішень",
+  documentTitle: "Ivan Web Development — Архітектор цифрових рішень",
   description:
-    "Портфоліо Івана — фулстек-розробника, який створює швидкі цифрові рішення та вебдосвід преміум-рівня.",
+    "Ivan Web Development — портфоліо фулстек-розробника, який створює швидкі цифрові рішення, конверсійні лендінги та вебдосвід преміум-рівня.",
   nav: [
     "ГОЛОВНА",
     "ПРО МЕНЕ",
@@ -346,9 +346,9 @@ const ukrainian: SiteContent = {
 
 const russian: SiteContent = {
   ...ukrainian,
-  documentTitle: "Иван — архитектор цифровых решений",
+  documentTitle: "Ivan Web Development — архитектор цифровых решений",
   description:
-    "Портфолио Ивана — фулстек-разработчика, создающего быстрые цифровые решения и веб-опыт премиального уровня.",
+    "Ivan Web Development — портфолио фулстек-разработчика, создающего быстрые цифровые решения, конверсионные лендинги и веб-опыт премиального уровня.",
   nav: ["ГЛАВНАЯ", "ОБО МНЕ", "РАБОТЫ", "УСЛУГИ", "НАПИСАТЬ"],
   badge: "Фулстек-разработчик",
   greeting: "Привет, мир! Я",
