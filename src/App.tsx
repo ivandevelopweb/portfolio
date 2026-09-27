@@ -198,7 +198,7 @@ export function App() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <a className="footer-brand" href="#home">
-            Ivan<span aria-hidden="true">.</span>
+            Iv<span>an</span>
           </a>
           <span className="footer-role">{page.footerRole}</span>
           <a className="footer-email" href="mailto:vandevweb@gmail.com">

@@ -41,7 +41,7 @@ export function Header({
     <header className={"site-header" + (menuOpen ? " is-menu-open" : "")}>
       <div className="container header-inner">
         <a href="#home" className="brand" onClick={onAnchorClick}>
-          Ivan<span aria-hidden="true">.</span>
+          Iv<span>an</span>
         </a>
 
         <nav
