@@ -1,497 +1,478 @@
 export type Locale = "eng" | "ua" | "rus";
 
+type ProjectCopy = {
+  category: string;
+  description: string;
+};
+
+type ServiceCopy = {
+  title: string;
+  description: string;
+};
+
+type ProcessStep = {
+  title: string;
+  description: string;
+};
+
 export type SiteContent = {
   documentTitle: string;
   description: string;
-  nav: string[];
-  badge: string;
-  greeting: string;
-  build: string;
+  nav: [string, string, string, string];
+  heroTitle: string;
   heroDescription: string;
-  heroButtons: [string, string];
-  sectionTitles: [string, string, string, string, string];
-  aboutSubtitle: string;
+  heroServices: string;
+  projectsCta: string;
+  contactCta: string;
+  heroPreviewAlt: string;
+  heroPreviewType: string;
+  heroPreviewLink: string;
+  projectsTitle: string;
+  projectsIntro: string;
+  projectAction: string;
+  projects: ProjectCopy[];
+  servicesTitle: string;
+  servicesIntro: string;
+  services: ServiceCopy[];
+  processTitle: string;
+  processIntro: string;
+  processSteps: [ProcessStep, ProcessStep, ProcessStep, ProcessStep];
+  aboutTitle: string;
+  aboutRole: string;
   about: string;
-  country: string;
-  skillHeaders: [string, string, string, string];
-  skillNames: string[];
-  projectTags: string[];
-  projectDescriptions: string[];
-  timelineDates: [string, string, string];
-  timelineTitles: [string, string, string];
-  timelineSubtitles: [string, string, string];
-  timelineItems: string[];
-  serviceBadges: string[];
-  serviceTitles: string[];
-  serviceDescriptions: string[];
-  serviceItems: string[];
+  aboutLocation: string;
+  techTitle: string;
   contactTitle: string;
   contactIntro: string;
+  contactTelegram: string;
   formTitle: string;
   formIntro: string;
   formLabels: [string, string, string, string];
   formPlaceholders: [string, string, string];
   send: string;
-  footer: string;
-  roles: string[];
+  footerRole: string;
+  footerEmail: string;
   messages: [string, string, string, string];
   ui: {
     language: string;
+    skipToContent: string;
+    navigation: string;
+    featuredProject: string;
+    socialLinks: string;
     openMenu: string;
     closeMenu: string;
-    unsupportedVideo: string;
+    projectLink: (name: string) => string;
   };
 };
 
 const english: SiteContent = {
-  documentTitle: "Ivan Web Development — Digital Solutions Architect",
+  documentTitle: "Ivan — Independent Web Developer",
   description:
-    "Ivan Web Development portfolio — full-stack developer crafting high-performance digital solutions, conversion-driven landing pages, and premium web experiences.",
-  nav: ["HOME", "ABOUT", "WORK", "OFFER", "GET IN TOUCH"],
-  badge: "Fullstack developer",
-  greeting: "Hello, World! I'm",
-  build: "I build ",
+    "Websites, e-commerce, and custom digital products built around real business needs. Design and full-stack development by Ivan.",
+  nav: ["Projects", "Services", "About", "Contact"],
+  heroTitle: "Digital products built to move business forward.",
   heroDescription:
-    "Full Stack Developer helping businesses grow through strategic <strong>Branding</strong>, high-conversion <strong>Landing Pages</strong>, and scalable <strong>Web Systems</strong>.",
-  heroButtons: ["View Projects →", "Contact"],
-  sectionTitles: [
-    "About Me",
-    "Technical Skills & Capabilities",
-    "Featured Work",
-    "Professional Journey",
-    "What I Offer",
+    "From a business website or online store to a custom web application, integrations, and automation — I take projects from the first brief to a working product.",
+  heroServices: "Business websites · E-commerce · Web apps · Automation",
+  projectsCta: "Explore projects",
+  contactCta: "Discuss a project",
+  heroPreviewAlt: "Velora e-commerce website preview",
+  heroPreviewType: "E-commerce",
+  heroPreviewLink: "View live site",
+  projectsTitle: "Selected work",
+  projectsIntro:
+    "A selection of websites and digital products, each shaped around a clear task and a useful experience.",
+  projectAction: "Open live project",
+  projects: [
+    {
+      category: "E-commerce",
+      description:
+        "A Ukrainian storefront for curated home, care, and gift products. A considered catalog and product pages make browsing and buying straightforward.",
+    },
+    {
+      category: "Legal services",
+      description:
+        "A multi-page website for a Kyiv legal practice, organizing business and personal services and giving visitors a clear path to a consultation.",
+    },
+    {
+      category: "Education · Course website",
+      description:
+        "A website for a six-month full-stack development course, with a clear program overview and an interactive learning roadmap.",
+    },
+    {
+      category: "Education · Local service",
+      description:
+        "A website for a mathematics tutor that explains the teaching approach and helps students and parents get in touch.",
+    },
+    {
+      category: "Event · 72-hour game jam",
+      description:
+        "An event website bringing the game jam format, participation details, rules, and schedule into one clear experience.",
+    },
   ],
-  aboutSubtitle: "A glimpse into who I am and what I do.",
+  servicesTitle: "From a focused website to a custom system.",
+  servicesIntro:
+    "The right scope depends on the business problem. I can build the public-facing experience, the tools behind it, or connect both.",
+  services: [
+    {
+      title: "Business websites",
+      description:
+        "A clear, responsive website that explains your offer, earns trust, and gives the right visitors a direct next step.",
+    },
+    {
+      title: "E-commerce",
+      description:
+        "Online stores with considered product discovery, catalog pages, checkout flows, and the integrations your operations need.",
+    },
+    {
+      title: "Web applications",
+      description:
+        "Client portals, dashboards, and internal tools built around the way your team and customers actually work.",
+    },
+    {
+      title: "Automation and AI",
+      description:
+        "Practical workflows that reduce repetitive work by connecting business data, services, and AI features where they help.",
+    },
+    {
+      title: "APIs and integrations",
+      description:
+        "Connect websites, CRMs, and external services so information moves reliably between the systems you use.",
+    },
+  ],
+  processTitle: "A clear path from brief to launch.",
+  processIntro:
+    "You work directly with the developer building your product. Each stage has a clear goal and a chance to review the work.",
+  processSteps: [
+    {
+      title: "Understand the task",
+      description:
+        "We clarify the business need, the people using the product, and what it should make easier or possible.",
+    },
+    {
+      title: "Shape the solution",
+      description:
+        "I map the structure, key flows, and interface, then agree on a practical scope before development.",
+    },
+    {
+      title: "Build and connect",
+      description:
+        "I develop the product, adapt it for mobile, and connect the data, APIs, or services it depends on.",
+    },
+    {
+      title: "Review and launch",
+      description:
+        "We check the finished experience, resolve the remaining details, and prepare the project for release.",
+    },
+  ],
+  aboutTitle: "One developer, from first brief to launch.",
+  aboutRole: "Independent web developer",
   about:
-    "I’m Ivan — a web developer focused on turning messy ideas into polished, high-performance digital products. My specialty is building clean, conversion-driven interfaces and landing pages that actually bring in leads, not just pretty pictures.",
-  country: "Ukraine",
-  skillHeaders: ["CORE SKILLS", "FRONTEND", "BACKEND", "TOOLS & PLATFORMS"],
-  skillNames: [
-    "Full-Stack Web Development",
-    "Landing Page Development",
-    "Workflow Automation",
-    "System Design & Architecture",
-    "API Integration",
-    "Responsive Web Design",
-    "Web Animations and Interactive UI",
-    "Authentication & Authorization",
-    "Database Design",
-    "REST API Development",
-  ],
-  projectTags: [
-    "E-commerce",
-    "Brand Experience",
-    "Legal Services",
-    "Business Support",
-    "Landing Page",
-    "Education",
-    "Lead Gen",
-    "Trust Design",
-    "Event Page",
-    "Gaming",
-  ],
-  projectDescriptions: [
-    "An e-commerce storefront for curated home, care, and gifting products, built around a calm, premium shopping experience.",
-    "A legal-services website for business and private clients in Kyiv, covering consultations, contracts, litigation, and ongoing support.",
-    "A sleek, high-conversion landing page for a 6-month full-stack development course, featuring a clean design and interactive roadmap visualization.",
-    "A dark-themed, trust-driven landing page for mathematics tutoring. Designed to highlight teacher credibility and convert visitors into students seamlessly.",
-    "A vibrant, immersive landing page for a 72-hour game jam. Built with dynamic gradients, striking typography, and clear event CTAs to maximize participation.",
-  ],
-  timelineDates: ["PRESENT", "COMPETITIONS", "~4 YEARS AGO"],
-  timelineTitles: [
-    "Freelance Web Developer",
-    "Hackathons & Technical Challenges",
-    "Self-Taught Foundations",
-  ],
-  timelineSubtitles: [
-    "Active Practice",
-    "Practical Mastery",
-    "The Starting Point",
-  ],
-  timelineItems: [
-    "Delivering production-ready web applications and high-converting landing pages for client projects.",
-    "Building full-stack solutions with a strong focus on clean architecture, performance, and user experience.",
-    "Developing a deep specialization in modern JavaScript frameworks, API integrations, and scalable deployment workflows.",
-    "Secured top placements in multiple regional and online hackathons by delivering innovative, functional prototypes under tight deadlines.",
-    "Proven ability to architect rapid solutions and adapt to unfamiliar tech stacks in high-pressure competitive environments.",
-    "Developed strong problem-solving skills by tackling real-world product challenges beyond basic coding exercises.",
-    "Built a solid grip on core programming languages, algorithms, and the fundamentals of software architecture through independent study.",
-    "Developed a rigorous mindset for debugging, optimization, and writing maintainable, clean code from the very first projects.",
-    "Transitioned from basic scripts to complex full-stack applications, laying a deep technical foundation for long-term growth.",
-  ],
-  serviceBadges: [
-    "CUSTOM & FAST",
-    "HIGH CONVERSION",
-    "UNIQUE",
-    "SMART",
-    "BEAUTIFUL",
-  ],
-  serviceTitles: [
-    "Web Development",
-    "Landing Pages",
-    "Brand Strategy",
-    "AI Automation",
-    "Premium UI/UX",
-  ],
-  serviceDescriptions: [
-    "I build fast, custom websites from scratch. No templates, just clean code that works perfectly and helps your business grow.",
-    "Eye-catching, one-page websites designed to turn your visitors into customers quickly and effectively.",
-    "I help your brand stand out. Together, we’ll create a unique digital identity that connects with your audience.",
-    "I use AI to automate your daily tasks. This saves you time, reduces costs, and makes your work much easier.",
-    "I design beautiful, easy-to-use interfaces. My focus is on creating smooth experiences that your users will love.",
-  ],
-  serviceItems: [
-    "Custom Web Apps",
-    "SaaS Platforms",
-    "API Engineering",
-    "Sales Pages",
-    "Lead Generation",
-    "Product Launch",
-    "Logo & Identity",
-    "Brand Guidelines",
-    "Market Positioning",
-    "AI Agents",
-    "Task Automation",
-    "Data Processing",
-    "3D Web Interfaces",
-    "Clean Layouts",
-    "User Experience",
-  ],
-  contactTitle: 'Let’s <span class="gradient-text">Connect</span>',
+    "I’m Ivan. I work directly with each client, so the person clarifying the problem is also the one designing and building the solution. My work ranges from business websites and online stores to full-stack applications, integrations, and automation.",
+  aboutLocation: "Based in Ukraine · Working remotely",
+  techTitle: "Tools I work with",
+  contactTitle: "Have a project in mind? Let’s talk.",
   contactIntro:
-    "Have a project in mind, a question, or just want to say hi? I’d love to hear from you.",
-  formTitle: "Let’s Connect",
-  formIntro: "Thank you for reaching out. I’ll get back to you soon.",
+    "Share what you need to build or improve. I’ll review the task and suggest a practical way to move forward.",
+  contactTelegram: "Message me on Telegram",
+  formTitle: "Send a project brief",
+  formIntro: "A few details are enough to start the conversation.",
   formLabels: ["Name", "Telegram username", "Message", "Company"],
-  formPlaceholders: ["Your Name", "@yourname", "What’s on your mind?"],
-  send: "Send Message",
-  footer: "© 2026 Ivan. All Rights Reserved.",
-  roles: [
-    "Strategic Branding",
-    "Premium Landing Pages",
-    "Complex Web Systems",
-    "Full Stack Web Apps",
-    "Scalable APIs",
-    "AI-Powered Products",
+  formPlaceholders: [
+    "Your name",
+    "@username",
+    "What does the project need to do?",
   ],
+  send: "Send message",
+  footerRole: "Independent web developer",
+  footerEmail: "Email",
   messages: [
     "Please complete all fields before sending.",
     "Sending…",
     "Thank you — your message has been sent.",
-    "Unable to send your message right now. Please try again later.",
+    "The message could not be sent. Please try again in a little while.",
   ],
   ui: {
     language: "Choose site language",
+    skipToContent: "Skip to content",
+    navigation: "Main navigation",
+    featuredProject: "Featured project",
+    socialLinks: "Social links",
     openMenu: "Open navigation menu",
     closeMenu: "Close navigation menu",
-    unsupportedVideo: "Your browser does not support the video tag.",
+    projectLink: (name) => "Open " + name + " in a new tab",
   },
 };
 
 const ukrainian: SiteContent = {
-  documentTitle: "Ivan Web Development — Архітектор цифрових рішень",
+  documentTitle: "Ivan — незалежний веброзробник",
   description:
-    "Ivan Web Development — портфоліо фулстек-розробника, який створює швидкі цифрові рішення, конверсійні лендінги та вебдосвід преміум-рівня.",
-  nav: [
-    "ГОЛОВНА",
-    "ПРО МЕНЕ",
-    "РОБОТИ",
-    "ПОСЛУГИ",
-    "НАПИСАТИ",
-  ],
-  badge: "Фулстек-розробник",
-  greeting: "Привіт, світ! Я",
-  build: "Створюю ",
+    "Сайти, інтернет-магазини й цифрові продукти для реальних бізнес-задач. Проєктування та full-stack розробка від Івана.",
+  nav: ["Проєкти", "Послуги", "Про мене", "Контакт"],
+  heroTitle: "Цифрові продукти, що допомагають бізнесу рухатися вперед.",
   heroDescription:
-    "Фулстек-розробник, який допомагає бізнесам зростати завдяки стратегічному <strong>брендингу</strong>, конверсійним <strong>лендінгам</strong> і масштабованим <strong>вебсистемам</strong>.",
-  heroButtons: ["Переглянути роботи →", "Зв’язатися"],
-  sectionTitles: [
-    "Про мене",
-    "Технічні навички та компетенції",
-    "Вибрані роботи",
-    "Професійний шлях",
-    "Що я пропоную",
+    "Від сайту компанії чи інтернет-магазину до вебзастосунку, інтеграцій і автоматизації — веду проєкт від першого обговорення до готового продукту.",
+  heroServices:
+    "Сайти для бізнесу · E-commerce · Вебзастосунки · Автоматизація",
+  projectsCta: "Переглянути проєкти",
+  contactCta: "Обговорити проєкт",
+  heroPreviewAlt: "Інтернет-магазин Velora",
+  heroPreviewType: "Інтернет-магазин",
+  heroPreviewLink: "Відкрити сайт",
+  projectsTitle: "Вибрані проєкти",
+  projectsIntro:
+    "Добірка сайтів і цифрових продуктів, кожен із чітким завданням і продуманим досвідом для користувача.",
+  projectAction: "Відкрити проєкт",
+  projects: [
+    {
+      category: "Інтернет-магазин",
+      description:
+        "Український магазин добірних товарів для дому, догляду й подарунків. Продуманий каталог і сторінки товарів допомагають легко обирати й купувати.",
+    },
+    {
+      category: "Юридичні послуги",
+      description:
+        "Багатосторінковий сайт юридичної практики в Києві: напрямки для бізнесу й приватних клієнтів та зрозумілий шлях до консультації.",
+    },
+    {
+      category: "Освіта · Сайт навчальної програми",
+      description:
+        "Сайт шестимісячної програми з full-stack розробки з чітким оглядом навчання та інтерактивною картою курсу.",
+    },
+    {
+      category: "Освіта · Локальна послуга",
+      description:
+        "Сайт викладача математики, що пояснює підхід до навчання та допомагає учням і батькам зв’язатися.",
+    },
+    {
+      category: "Подія · Game jam на 72 години",
+      description:
+        "Сайт події, що збирає формат геймджему, умови участі, правила й розклад в одному зрозумілому просторі.",
+    },
   ],
-  aboutSubtitle: "Коротко про мене та мою роботу.",
+  servicesTitle: "Від сайту до індивідуальної системи.",
+  servicesIntro:
+    "Рішення залежить від бізнес-завдання. Можу створити клієнтський інтерфейс, внутрішні інструменти або поєднати їх між собою.",
+  services: [
+    {
+      title: "Сайти для бізнесу",
+      description:
+        "Зрозумілий адаптивний сайт, який пояснює вашу пропозицію, викликає довіру та підказує відвідувачу наступний крок.",
+    },
+    {
+      title: "Інтернет-магазини",
+      description:
+        "Магазини з каталогом, зручним пошуком товарів, оформленням замовлень і потрібними бізнесу інтеграціями.",
+    },
+    {
+      title: "Вебзастосунки",
+      description:
+        "Кабінети клієнтів, дашборди й внутрішні інструменти, створені під роботу вашої команди та потреби користувачів.",
+    },
+    {
+      title: "Автоматизація та AI",
+      description:
+        "Практичні сценарії, що прибирають повторювану роботу й поєднують бізнес-дані, сервіси та AI там, де це корисно.",
+    },
+    {
+      title: "API та інтеграції",
+      description:
+        "Поєдную сайти, CRM та зовнішні сервіси, щоб дані надійно передавалися між системами, якими ви користуєтесь.",
+    },
+  ],
+  processTitle: "Зрозумілий шлях від задачі до запуску.",
+  processIntro:
+    "Ви напряму працюєте з розробником, який створює продукт. На кожному етапі є чітка мета та змога переглянути результат.",
+  processSteps: [
+    {
+      title: "З’ясовуємо задачу",
+      description:
+        "Уточнюємо потребу бізнесу, хто користуватиметься продуктом і що він має спростити або зробити можливим.",
+    },
+    {
+      title: "Формуємо рішення",
+      description:
+        "Визначаю структуру, основні сценарії та інтерфейс, а перед розробкою узгоджуємо реалістичний обсяг.",
+    },
+    {
+      title: "Розробляю й інтегрую",
+      description:
+        "Створюю продукт, адаптую його для мобільних пристроїв і підключаю потрібні дані, API та сервіси.",
+    },
+    {
+      title: "Перевіряємо й запускаємо",
+      description:
+        "Переглядаємо готовий продукт, виправляємо деталі та готуємо проєкт до публікації.",
+    },
+  ],
+  aboutTitle: "Один розробник — від першої розмови до запуску.",
+  aboutRole: "Незалежний веброзробник",
   about:
-    "Я Іван — веброзробник, який перетворює нечіткі ідеї на вивірені, продуктивні цифрові продукти. Моя спеціалізація — чисті інтерфейси та лендінги, орієнтовані на конверсію й реальні заявки, а не лише на гарну картинку.",
-  country: "Україна",
-  skillHeaders: [
-    "ОСНОВНІ НАВИЧКИ",
-    "ФРОНТЕНД",
-    "БЕКЕНД",
-    "ІНСТРУМЕНТИ ТА ПЛАТФОРМИ",
-  ],
-  skillNames: [
-    "Фулстек веброзробка",
-    "Розробка лендінгів",
-    "Автоматизація процесів",
-    "Проєктування систем та архітектура",
-    "Інтеграція API",
-    "Адаптивний вебдизайн",
-    "Вебанімації та інтерактивні інтерфейси",
-    "Автентифікація та авторизація",
-    "Проєктування баз даних",
-    "Розробка REST API",
-  ],
-  projectTags: [
-    "Інтернет-магазин",
-    "Брендовий досвід",
-    "Юридичні послуги",
-    "Підтримка бізнесу",
-    "Лендінг",
-    "Освіта",
-    "Збір заявок",
-    "Дизайн, що викликає довіру",
-    "Сторінка події",
-    "Геймінг",
-  ],
-  projectDescriptions: [
-    "Інтернет-магазин добірних товарів для дому, догляду та подарунків, побудований навколо спокійного преміального досвіду покупок.",
-    "Сайт юридичних послуг для бізнесу та приватних клієнтів у Києві: консультації, договори, судове представництво й комплексний супровід.",
-    "Стильний конверсійний лендінг для шестимісячного курсу з фулстек-розробки — з чистим дизайном та інтерактивною візуалізацією дорожньої карти.",
-    "Темний лендінг для викладача математики, побудований на довірі. Він підкреслює експертність викладача та м’яко веде відвідувачів до запису на заняття.",
-    "Яскравий атмосферний лендінг для 72-годинного геймджему. Динамічні градієнти, виразна типографіка та чіткі заклики до дії допомагають залучити учасників.",
-  ],
-  timelineDates: ["ЗАРАЗ", "ЗМАГАННЯ", "≈4 РОКИ ТОМУ"],
-  timelineTitles: [
-    "Фриланс-розробник",
-    "Хакатони та технічні виклики",
-    "Самостійна підготовка",
-  ],
-  timelineSubtitles: [
-    "Активна практика",
-    "Практична майстерність",
-    "Відправна точка",
-  ],
-  timelineItems: [
-    "Створюю готові до запуску вебзастосунки та конверсійні лендінги для клієнтських проєктів.",
-    "Розробляю фулстек-рішення з фокусом на чистій архітектурі, продуктивності та досвіді користувача.",
-    "Поглиблюю спеціалізацію в сучасних JavaScript-фреймворках, API-інтеграціях і масштабованих процесах розгортання.",
-    "Здобував призові місця на регіональних і онлайн-хакатонах, створюючи інноваційні робочі прототипи в стислі терміни.",
-    "Умію швидко проєктувати рішення та адаптуватися до незнайомих технологічних стеків у конкурентному середовищі.",
-    "Розвинув сильні навички розв’язання задач, працюючи над реальними продуктовими викликами поза межами базових навчальних вправ.",
-    "Самостійно опанував ключові мови програмування, алгоритми та основи архітектури програмного забезпечення.",
-    "Із перших проєктів сформував системний підхід до налагодження, оптимізації та написання чистого підтримуваного коду.",
-    "Пройшов шлях від базових скриптів до складних фулстек-застосунків, заклавши міцне технічне підґрунтя для подальшого розвитку.",
-  ],
-  serviceBadges: [
-    "ІНДИВІДУАЛЬНО ТА ШВИДКО",
-    "ВИСОКА КОНВЕРСІЯ",
-    "УНІКАЛЬНО",
-    "РОЗУМНО",
-    "ВИШУКАНО",
-  ],
-  serviceTitles: [
-    "Веброзробка",
-    "Лендінги",
-    "Бренд-стратегія",
-    "AI-автоматизація",
-    "Преміальний UI/UX",
-  ],
-  serviceDescriptions: [
-    "Створюю швидкі індивідуальні сайти з нуля. Без шаблонів — лише чистий код, який бездоганно працює та допомагає бізнесу зростати.",
-    "Помітні односторінкові сайти, спроєктовані так, щоб швидко й ефективно перетворювати відвідувачів на клієнтів.",
-    "Допомагаю брендам бути помітними. Разом ми створимо унікальну цифрову айдентику, що резонує з вашою аудиторією.",
-    "Використовую AI для автоматизації щоденних задач: це економить час, знижує витрати та спрощує робочі процеси.",
-    "Проєктую красиві та зрозумілі інтерфейси. Мій фокус — плавний досвід, яким вашим користувачам захочеться користуватися.",
-  ],
-  serviceItems: [
-    "Індивідуальні вебзастосунки",
-    "SaaS-платформи",
-    "Розробка API",
-    "Сторінки продажу",
-    "Генерація заявок",
-    "Запуск продукту",
-    "Логотип та айдентика",
-    "Гайдлайни бренду",
-    "Позиціонування на ринку",
-    "AI-агенти",
-    "Автоматизація задач",
-    "Обробка даних",
-    "3D вебінтерфейси",
-    "Чисті макети",
-    "Користувацький досвід",
-  ],
-  contactTitle: 'Давайте <span class="gradient-text">познайомимось</span>',
+    "Я Іван. Працюю з кожним клієнтом напряму: людина, яка з’ясовує задачу, також проєктує й розробляє рішення. Створюю сайти для бізнесу та інтернет-магазини, а також full-stack застосунки, інтеграції й автоматизацію.",
+  aboutLocation: "Працюю з України · Віддалено",
+  techTitle: "Інструменти в роботі",
+  contactTitle: "Маєте проєкт? Обговорімо.",
   contactIntro:
-    "Маєте ідею, запитання або просто хочете привітатися? Буду радий почути від вас.",
-  formTitle: "Давайте познайомимось",
-  formIntro: "Дякую за звернення. Відповім вам найближчим часом.",
+    "Розкажіть, що потрібно створити або вдосконалити. Я розберу задачу й запропоную практичний наступний крок.",
+  contactTelegram: "Написати в Telegram",
+  formTitle: "Опишіть проєкт",
+  formIntro: "Щоб почати розмову, достатньо кількох деталей.",
   formLabels: ["Ім’я", "Нік у Telegram", "Повідомлення", "Компанія"],
-  formPlaceholders: ["Ваше ім’я", "@yourname", "Що у вас на думці?"],
+  formPlaceholders: ["Ваше ім’я", "@username", "Що має робити проєкт?"],
   send: "Надіслати повідомлення",
-  footer: "© 2026 Іван. Усі права захищені.",
-  roles: [
-    "Стратегічний брендинг",
-    "Преміальні лендінги",
-    "Складні вебсистеми",
-    "Фулстек вебзастосунки",
-    "Масштабовані API",
-    "Продукти на базі AI",
-  ],
+  footerRole: "Незалежний веброзробник",
+  footerEmail: "Електронна пошта",
   messages: [
     "Будь ласка, заповніть усі поля перед надсиланням.",
-    "Надсилаємо…",
-    "Дякую — ваше повідомлення надіслано.",
-    "Не вдалося надіслати повідомлення. Спробуйте ще раз трохи пізніше.",
+    "Надсилаю…",
+    "Дякую — повідомлення надіслано.",
+    "Не вдалося надіслати повідомлення. Спробуйте трохи пізніше.",
   ],
   ui: {
     language: "Обрати мову сайту",
+    skipToContent: "Перейти до вмісту",
+    navigation: "Головна навігація",
+    featuredProject: "Вибраний проєкт",
+    socialLinks: "Посилання на соцмережі",
     openMenu: "Відкрити меню навігації",
     closeMenu: "Закрити меню навігації",
-    unsupportedVideo: "Ваш браузер не підтримує відтворення відео.",
+    projectLink: (name) => "Відкрити " + name + " в новій вкладці",
   },
 };
 
 const russian: SiteContent = {
-  ...ukrainian,
-  documentTitle: "Ivan Web Development — архитектор цифровых решений",
+  documentTitle: "Ivan — независимый веб-разработчик",
   description:
-    "Ivan Web Development — портфолио фулстек-разработчика, создающего быстрые цифровые решения, конверсионные лендинги и веб-опыт премиального уровня.",
-  nav: ["ГЛАВНАЯ", "ОБО МНЕ", "РАБОТЫ", "УСЛУГИ", "НАПИСАТЬ"],
-  badge: "Фулстек-разработчик",
-  greeting: "Привет, мир! Я",
-  build: "Создаю ",
+    "Сайты, интернет-магазины и цифровые продукты для реальных задач бизнеса. Проектирование и full-stack разработка от Ивана.",
+  nav: ["Проекты", "Услуги", "Обо мне", "Контакт"],
+  heroTitle: "Цифровые продукты, которые помогают бизнесу двигаться вперёд.",
   heroDescription:
-    "Фулстек-разработчик, который помогает бизнесу расти благодаря стратегическому <strong>брендингу</strong>, конверсионным <strong>лендингам</strong> и масштабируемым <strong>веб-системам</strong>.",
-  heroButtons: ["Смотреть работы →", "Связаться"],
-  sectionTitles: [
-    "Обо мне",
-    "Технические навыки и компетенции",
-    "Избранные работы",
-    "Профессиональный путь",
-    "Что я предлагаю",
+    "От сайта компании или интернет-магазина до веб-приложения, интеграций и автоматизации — веду проект от первого обсуждения до готового продукта.",
+  heroServices:
+    "Сайты для бизнеса · E-commerce · Веб-приложения · Автоматизация",
+  projectsCta: "Посмотреть проекты",
+  contactCta: "Обсудить проект",
+  heroPreviewAlt: "Интернет-магазин Velora",
+  heroPreviewType: "Интернет-магазин",
+  heroPreviewLink: "Открыть сайт",
+  projectsTitle: "Избранные проекты",
+  projectsIntro:
+    "Подборка сайтов и цифровых продуктов, каждый с понятной задачей и продуманным опытом для пользователя.",
+  projectAction: "Открыть проект",
+  projects: [
+    {
+      category: "Интернет-магазин",
+      description:
+        "Украинский магазин отобранных товаров для дома, ухода и подарков. Продуманный каталог и карточки товаров помогают выбирать и покупать.",
+    },
+    {
+      category: "Юридические услуги",
+      description:
+        "Многостраничный сайт юридической практики в Киеве: направления для бизнеса и частных клиентов и понятный путь к консультации.",
+    },
+    {
+      category: "Образование · Сайт учебной программы",
+      description:
+        "Сайт шестимесячной программы по full-stack разработке с понятным обзором обучения и интерактивной картой курса.",
+    },
+    {
+      category: "Образование · Локальная услуга",
+      description:
+        "Сайт преподавателя математики, который объясняет подход к занятиям и помогает ученикам и родителям связаться.",
+    },
+    {
+      category: "Событие · Game jam на 72 часа",
+      description:
+        "Сайт события, объединяющий формат геймджема, условия участия, правила и расписание в одном понятном пространстве.",
+    },
   ],
-  aboutSubtitle: "Немного обо мне и о том, чем я занимаюсь.",
+  servicesTitle: "От сайта до индивидуальной системы.",
+  servicesIntro:
+    "Решение зависит от задачи бизнеса. Я могу создать интерфейс для клиентов, внутренние инструменты или связать их между собой.",
+  services: [
+    {
+      title: "Сайты для бизнеса",
+      description:
+        "Понятный адаптивный сайт, который рассказывает о вашем предложении, вызывает доверие и подсказывает посетителю следующий шаг.",
+    },
+    {
+      title: "Интернет-магазины",
+      description:
+        "Магазины с каталогом, удобным поиском товаров, оформлением заказов и нужными бизнесу интеграциями.",
+    },
+    {
+      title: "Веб-приложения",
+      description:
+        "Кабинеты клиентов, дашборды и внутренние инструменты для работы вашей команды и задач пользователей.",
+    },
+    {
+      title: "Автоматизация и AI",
+      description:
+        "Практичные сценарии, которые сокращают повторяющуюся работу и связывают бизнес-данные, сервисы и AI там, где это полезно.",
+    },
+    {
+      title: "API и интеграции",
+      description:
+        "Связываю сайты, CRM и внешние сервисы, чтобы данные надёжно передавались между нужными системами.",
+    },
+  ],
+  processTitle: "Понятный путь от задачи до запуска.",
+  processIntro:
+    "Вы напрямую работаете с разработчиком, который создаёт продукт. На каждом этапе есть ясная цель и возможность посмотреть результат.",
+  processSteps: [
+    {
+      title: "Разбираем задачу",
+      description:
+        "Уточняем потребность бизнеса, кто будет пользоваться продуктом и что он должен упростить или сделать возможным.",
+    },
+    {
+      title: "Формируем решение",
+      description:
+        "Определяю структуру, ключевые сценарии и интерфейс, а до разработки согласуем реалистичный объём.",
+    },
+    {
+      title: "Разрабатываю и связываю",
+      description:
+        "Создаю продукт, адаптирую его для мобильных устройств и подключаю нужные данные, API и сервисы.",
+    },
+    {
+      title: "Проверяем и запускаем",
+      description:
+        "Проверяем готовый продукт, исправляем детали и готовим проект к публикации.",
+    },
+  ],
+  aboutTitle: "Один разработчик — от первого разговора до запуска.",
+  aboutRole: "Независимый веб-разработчик",
   about:
-    "Я Иван — веб-разработчик, который превращает неясные идеи в продуманные, производительные цифровые продукты. Моя специализация — чистые интерфейсы и лендинги, ориентированные на конверсию и реальные заявки, а не только на красивую картинку.",
-  country: "Украина",
-  skillHeaders: [
-    "КЛЮЧЕВЫЕ НАВЫКИ",
-    "ФРОНТЕНД",
-    "БЕКЕНД",
-    "ИНСТРУМЕНТЫ И ПЛАТФОРМЫ",
-  ],
-  skillNames: [
-    "Фулстек веб-разработка",
-    "Разработка лендингов",
-    "Автоматизация процессов",
-    "Проектирование систем и архитектура",
-    "Интеграция API",
-    "Адаптивный веб-дизайн",
-    "Веб-анимации и интерактивные интерфейсы",
-    "Аутентификация и авторизация",
-    "Проектирование баз данных",
-    "Разработка REST API",
-  ],
-  projectTags: [
-    "Интернет-магазин",
-    "Брендовый опыт",
-    "Юридические услуги",
-    "Поддержка бизнеса",
-    "Лендинг",
-    "Образование",
-    "Сбор заявок",
-    "Дизайн, вызывающий доверие",
-    "Страница события",
-    "Гейминг",
-  ],
-  projectDescriptions: [
-    "Интернет-магазин отобранных товаров для дома, ухода и подарков, построенный вокруг спокойного премиального опыта покупок.",
-    "Сайт юридических услуг для бизнеса и частных клиентов в Киеве: консультации, договоры, представительство в суде и комплексное сопровождение.",
-    "Стильный конверсионный лендинг для шестимесячного курса по фулстек-разработке — с чистым дизайном и интерактивной визуализацией дорожной карты.",
-    "Тёмный лендинг для преподавателя математики, построенный на доверии. Он подчёркивает экспертность преподавателя и мягко ведёт посетителей к записи на занятия.",
-    "Яркий атмосферный лендинг для 72-часового геймджема. Динамичные градиенты, выразительная типографика и понятные призывы к действию помогают привлечь участников.",
-  ],
-  timelineDates: ["СЕЙЧАС", "СОРЕВНОВАНИЯ", "≈4 ГОДА НАЗАД"],
-  timelineTitles: [
-    "Фриланс веб-разработчик",
-    "Хакатоны и технические вызовы",
-    "Самостоятельная подготовка",
-  ],
-  timelineSubtitles: [
-    "Активная практика",
-    "Практическое мастерство",
-    "Точка старта",
-  ],
-  timelineItems: [
-    "Создаю готовые к запуску веб-приложения и конверсионные лендинги для клиентских проектов.",
-    "Разрабатываю фулстек-решения с фокусом на чистой архитектуре, производительности и пользовательском опыте.",
-    "Углубляю специализацию в современных JavaScript-фреймворках, API-интеграциях и масштабируемых процессах развёртывания.",
-    "Занимал призовые места на региональных и онлайн-хакатонах, создавая инновационные рабочие прототипы в сжатые сроки.",
-    "Умею быстро проектировать решения и адаптироваться к незнакомым технологическим стекам в конкурентной среде.",
-    "Развил сильные навыки решения задач, работая над реальными продуктовыми вызовами за пределами базовых учебных упражнений.",
-    "Самостоятельно освоил ключевые языки программирования, алгоритмы и основы архитектуры программного обеспечения.",
-    "С первых проектов сформировал системный подход к отладке, оптимизации и написанию чистого поддерживаемого кода.",
-    "Прошёл путь от базовых скриптов до сложных фулстек-приложений, заложив прочный технический фундамент для дальнейшего роста.",
-  ],
-  serviceBadges: [
-    "ИНДИВИДУАЛЬНО И БЫСТРО",
-    "ВЫСОКАЯ КОНВЕРСИЯ",
-    "УНИКАЛЬНО",
-    "УМНО",
-    "ВЫРАЗИТЕЛЬНО",
-  ],
-  serviceTitles: [
-    "Веб-разработка",
-    "Лендинги",
-    "Бренд-стратегия",
-    "AI-автоматизация",
-    "Премиальный UI/UX",
-  ],
-  serviceDescriptions: [
-    "Создаю быстрые индивидуальные сайты с нуля. Без шаблонов — только чистый код, который работает безупречно и помогает бизнесу расти.",
-    "Выразительные одностраничные сайты, спроектированные так, чтобы быстро и эффективно превращать посетителей в клиентов.",
-    "Помогаю брендам выделяться. Вместе мы создадим уникальную цифровую айдентику, которая найдёт отклик у вашей аудитории.",
-    "Использую AI для автоматизации ежедневных задач: это экономит время, снижает расходы и упрощает рабочие процессы.",
-    "Проектирую красивые и понятные интерфейсы. Мой фокус — плавный опыт, которым вашим пользователям захочется пользоваться.",
-  ],
-  serviceItems: [
-    "Индивидуальные веб-приложения",
-    "SaaS-платформы",
-    "Разработка API",
-    "Страницы продаж",
-    "Генерация заявок",
-    "Запуск продукта",
-    "Логотип и айдентика",
-    "Гайдлайны бренда",
-    "Позиционирование на рынке",
-    "AI-агенты",
-    "Автоматизация задач",
-    "Обработка данных",
-    "3D веб-интерфейсы",
-    "Чистые макеты",
-    "Пользовательский опыт",
-  ],
-  contactTitle: 'Давайте <span class="gradient-text">познакомимся</span>',
+    "Я Иван. Работаю с каждым клиентом напрямую: человек, который разбирается в задаче, также проектирует и разрабатывает решение. Создаю сайты для бизнеса и интернет-магазины, а также full-stack приложения, интеграции и автоматизацию.",
+  aboutLocation: "Работаю из Украины · Удалённо",
+  techTitle: "Инструменты в работе",
+  contactTitle: "Есть проект? Давайте обсудим.",
   contactIntro:
-    "Есть идея, вопрос или просто хотите поздороваться? Буду рад услышать вас.",
-  formTitle: "Давайте познакомимся",
-  formIntro: "Спасибо за обращение. Я отвечу вам в ближайшее время.",
+    "Расскажите, что нужно создать или улучшить. Я разберу задачу и предложу практичный следующий шаг.",
+  contactTelegram: "Написать в Telegram",
+  formTitle: "Опишите проект",
+  formIntro: "Для начала разговора достаточно нескольких деталей.",
   formLabels: ["Имя", "Ник в Telegram", "Сообщение", "Компания"],
-  formPlaceholders: ["Ваше имя", "@yourname", "Что у вас на уме?"],
+  formPlaceholders: ["Ваше имя", "@username", "Что должен делать проект?"],
   send: "Отправить сообщение",
-  footer: "© 2026 Иван. Все права защищены.",
-  roles: [
-    "Стратегический брендинг",
-    "Премиальные лендинги",
-    "Сложные веб-системы",
-    "Фулстек веб-приложения",
-    "Масштабируемые API",
-    "Продукты на базе AI",
-  ],
+  footerRole: "Независимый веб-разработчик",
+  footerEmail: "Электронная почта",
   messages: [
     "Пожалуйста, заполните все поля перед отправкой.",
-    "Отправляем…",
-    "Спасибо — ваше сообщение отправлено.",
-    "Не удалось отправить сообщение. Пожалуйста, попробуйте ещё раз чуть позже.",
+    "Отправляю…",
+    "Спасибо — сообщение отправлено.",
+    "Не удалось отправить сообщение. Попробуйте чуть позже.",
   ],
   ui: {
     language: "Выбрать язык сайта",
+    skipToContent: "Перейти к содержимому",
+    navigation: "Главная навигация",
+    featuredProject: "Избранный проект",
+    socialLinks: "Ссылки на соцсети",
     openMenu: "Открыть меню навигации",
     closeMenu: "Закрыть меню навигации",
-    unsupportedVideo: "Ваш браузер не поддерживает воспроизведение видео.",
+    projectLink: (name) => "Открыть " + name + " в новой вкладке",
   },
 };
 
@@ -500,11 +481,13 @@ export const content: Record<Locale, SiteContent> = {
   ua: ukrainian,
   rus: russian,
 };
+
 export const labels: Record<Locale, string> = {
   eng: "ENG",
   ua: "UA",
   rus: "RUS",
 };
+
 export const routes: Record<Locale, string> = {
   eng: "/",
   ua: "/ua",

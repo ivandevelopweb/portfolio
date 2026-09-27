@@ -3,102 +3,21 @@ import { useEffect, useRef, useState } from "react";
 import { AboutSection } from "./components/AboutSection";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { ArrowUpRightIcon } from "./components/Icons";
 import {
   ContactSection,
+  ProcessSection,
   ProjectsSection,
   ServicesSection,
 } from "./components/WorkSections";
 import { content, type Locale, routes } from "./content";
-import premiumVibesUrl from "../premium-vibes.js?url";
 
-const sectionIds = [
-  "home",
-  "about",
-  "projects",
-  "services",
-  "contact",
-];
+const sectionIds = ["projects", "services", "about", "contact"];
 
 function localeFromPath(): Locale {
   if (window.location.pathname.startsWith("/ua")) return "ua";
   if (window.location.pathname.startsWith("/rus")) return "rus";
   return "eng";
-}
-
-function useTypedRole(roles: string[]) {
-  const [text, setText] = useState("");
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setText(roles[0]);
-      return;
-    }
-    let roleIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-    let timer = 0;
-    const tick = () => {
-      const role = roles[roleIndex];
-      charIndex += deleting ? -1 : 1;
-      setText(role.slice(0, charIndex));
-      let delay = deleting ? 50 : 90;
-      if (!deleting && charIndex === role.length) {
-        deleting = true;
-        delay = 1800;
-      }
-      if (deleting && charIndex === 0) {
-        deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        delay = 400;
-      }
-      timer = window.setTimeout(tick, delay);
-    };
-    tick();
-    return () => window.clearTimeout(timer);
-  }, [roles]);
-  return text;
-}
-
-function useBackground() {
-  useEffect(() => {
-    if (
-      document.getElementById("three-script") ||
-      document.getElementById("premium-vibes-script")
-    )
-      return;
-    const three = document.createElement("script");
-    three.id = "three-script";
-    three.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
-    three.onload = () => {
-      const background = document.createElement("script");
-      background.id = "premium-vibes-script";
-      background.src = premiumVibesUrl;
-      document.body.appendChild(background);
-    };
-    document.head.appendChild(three);
-  }, []);
-}
-
-function useCustomCursor() {
-  useEffect(() => {
-    if (
-      !window.matchMedia("(hover: hover) and (pointer: fine)").matches ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    )
-      return;
-    const outer = document.querySelector<HTMLElement>(".cursor-outer");
-    const inner = document.querySelector<HTMLElement>(".cursor-inner");
-    if (!outer || !inner) return;
-    const move = (event: globalThis.MouseEvent) => {
-      inner.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
-      outer.animate(
-        { transform: `translate(${event.clientX}px, ${event.clientY}px)` },
-        { duration: 500, fill: "forwards" },
-      );
-    };
-    document.addEventListener("mousemove", move);
-    return () => document.removeEventListener("mousemove", move);
-  }, []);
 }
 
 export function App() {
@@ -113,10 +32,6 @@ export function App() {
   const [sending, setSending] = useState(false);
   const languageRef = useRef<HTMLDivElement>(null);
   const page = content[locale];
-  const typedRole = useTypedRole(page.roles);
-
-  useBackground();
-  useCustomCursor();
 
   const navigate = (nextLocale: Locale, replace = false) => {
     localStorage.setItem("ivan-language", nextLocale);
@@ -136,11 +51,14 @@ export function App() {
       .slice(0, 2)
       .toLowerCase();
     const preferred = saved || browser;
+
     if (
       window.location.pathname === "/" &&
       ["ua", "uk", "rus", "ru"].includes(preferred)
-    )
+    ) {
       navigate(preferred === "ua" || preferred === "uk" ? "ua" : "rus", true);
+    }
+
     const onPopState = () => setLocale(localeFromPath());
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
@@ -150,43 +68,36 @@ export function App() {
     document.documentElement.lang =
       locale === "eng" ? "en" : locale === "ua" ? "uk" : "ru";
     document.title = page.documentTitle;
-    document
-      .querySelector('meta[name="description"]')
-      ?.setAttribute("content", page.description);
+
+    const metadata: Array<[string, string, string]> = [
+      ['meta[name="description"]', "content", page.description],
+      ['meta[property="og:title"]', "content", page.documentTitle],
+      ['meta[property="og:description"]', "content", page.description],
+      ['meta[name="twitter:title"]', "content", page.documentTitle],
+      ['meta[name="twitter:description"]', "content", page.description],
+    ];
+    metadata.forEach(([selector, attribute, value]) => {
+      document.querySelector(selector)?.setAttribute(attribute, value);
+    });
   }, [locale, page]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach(
-          (entry) =>
-            entry.isIntersecting && entry.target.classList.add("visible"),
-        ),
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-    );
-    const elements = document.querySelectorAll(
-      ".section-title, .reveal, .glass-card, .timeline-item, .service-card, .project-card-v2, .about-layout-new, .skills",
-    );
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, [locale]);
-
-  useEffect(() => {
     const updateActiveSection = () => {
-      if (window.scrollY < 100) {
+      if (window.scrollY < 120) {
         setActiveSection("home");
         return;
       }
+
+      let current = "home";
       sectionIds.forEach((id) => {
         const section = document.getElementById(id);
-        if (
-          section &&
-          window.scrollY >= section.offsetTop - 150 &&
-          window.scrollY < section.offsetTop + section.offsetHeight - 150
-        )
-          setActiveSection(id);
+        if (section && section.getBoundingClientRect().top <= 140) {
+          current = id;
+        }
       });
+      setActiveSection(current);
     };
+
     window.addEventListener("scroll", updateActiveSection, { passive: true });
     updateActiveSection();
     return () => window.removeEventListener("scroll", updateActiveSection);
@@ -194,8 +105,9 @@ export function App() {
 
   useEffect(() => {
     const closeOutside = (event: globalThis.MouseEvent) => {
-      if (!languageRef.current?.contains(event.target as Node))
+      if (!languageRef.current?.contains(event.target as Node)) {
         setLanguageOpen(false);
+      }
     };
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -203,6 +115,7 @@ export function App() {
         setMenuOpen(false);
       }
     };
+
     document.addEventListener("mousedown", closeOutside);
     document.addEventListener("keydown", closeOnEscape);
     return () => {
@@ -218,12 +131,12 @@ export function App() {
     event.preventDefault();
     navigate(nextLocale);
   };
+
   const submitForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
-    const data = Object.fromEntries(
-      new FormData(form).entries(),
-    );
+    const data = Object.fromEntries(new FormData(form).entries());
+
     if (
       !String(data.name || "").trim() ||
       !String(data.telegram || "").trim() ||
@@ -232,6 +145,7 @@ export function App() {
       setFormStatus({ text: page.messages[0], type: "error" });
       return;
     }
+
     setSending(true);
     setFormStatus({ text: "", type: "" });
     try {
@@ -252,10 +166,10 @@ export function App() {
 
   return (
     <>
-      <div className="noise-overlay" />
-      <div id="nebula-container" />
-      <div className="cursor-outer" />
-      <div className="cursor-inner" />
+      <a className="skip-link" href="#home">
+        {page.ui.skipToContent}
+      </a>
+      <div className="background-grid" aria-hidden="true" />
       <Header
         activeSection={activeSection}
         content={page}
@@ -268,19 +182,31 @@ export function App() {
         onToggleMenu={() => setMenuOpen((value) => !value)}
         languageRef={languageRef}
       />
-      <Hero content={page} typedRole={typedRole} />
-      <AboutSection content={page} />
-      <ProjectsSection content={page} />
-      <ServicesSection content={page} />
-      <ContactSection
-        content={page}
-        sending={sending}
-        status={formStatus}
-        onSubmit={submitForm}
-      />
-      <footer className="footer">
-        <div className="container">
-          <p>{page.footer}</p>
+      <main id="main-content">
+        <Hero content={page} />
+        <ProjectsSection content={page} />
+        <ServicesSection content={page} />
+        <ProcessSection content={page} />
+        <AboutSection content={page} />
+        <ContactSection
+          content={page}
+          sending={sending}
+          status={formStatus}
+          onSubmit={submitForm}
+        />
+      </main>
+      <footer className="site-footer">
+        <div className="container footer-inner">
+          <a className="footer-brand" href="#home">
+            Ivan<span aria-hidden="true">.</span>
+          </a>
+          <span className="footer-role">{page.footerRole}</span>
+          <a className="footer-email" href="mailto:vandevweb@gmail.com">
+            {page.footerEmail} <ArrowUpRightIcon />
+          </a>
+          <span className="footer-copyright">
+            © {new Date().getFullYear()} Ivan
+          </span>
         </div>
       </footer>
     </>

@@ -2,13 +2,7 @@ import type { MouseEvent } from "react";
 import type { Locale, SiteContent } from "../content";
 import { labels, routes } from "../content";
 
-const navTargets = [
-  "home",
-  "about",
-  "projects",
-  "services",
-  "contact",
-];
+const navTargets = ["projects", "services", "about", "contact"];
 const localeOrder: Record<Locale, Locale[]> = {
   eng: ["eng", "ua", "rus"],
   ua: ["ua", "eng", "rus"],
@@ -44,40 +38,52 @@ export function Header({
   languageRef,
 }: HeaderProps) {
   return (
-    <nav className="navbar" id="navbar">
-      <div className="nav-container">
-        <div className="logo">
-          <a href="#home" className="logo-text" onClick={onAnchorClick}>
-            Iv<span className="gradient-text">an</span>
-          </a>
-        </div>
-        <ul className={`nav-menu ${menuOpen ? "active" : ""}`} id="nav-menu">
-          {content.nav.map((name, index) => {
-            const target = navTargets[index];
-            return (
-              <li key={target}>
-                <a
-                  href={`#${target}`}
-                  className={`nav-link ${activeSection === target ? "active" : ""} ${index === 4 ? "nav-contact-btn" : ""}`}
-                  onClick={onAnchorClick}
-                >
-                  {name}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-        <div className="nav-actions">
+    <header className={"site-header" + (menuOpen ? " is-menu-open" : "")}>
+      <div className="container header-inner">
+        <a href="#home" className="brand" onClick={onAnchorClick}>
+          Ivan<span aria-hidden="true">.</span>
+        </a>
+
+        <nav
+          className={"primary-navigation" + (menuOpen ? " is-open" : "")}
+          aria-label={content.ui.navigation}
+        >
+          <ul className="nav-menu" id="site-navigation">
+            {content.nav.map((name, index) => {
+              const target = navTargets[index];
+              return (
+                <li key={target}>
+                  <a
+                    href={"#" + target}
+                    className={
+                      "nav-link" +
+                      (activeSection === target ? " is-active" : "") +
+                      (index === 3 ? " nav-contact" : "")
+                    }
+                    aria-current={
+                      activeSection === target ? "location" : undefined
+                    }
+                    onClick={onAnchorClick}
+                  >
+                    {name}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        <div className="header-actions">
           <div
-            className={`language-switcher ${languageOpen ? "open" : ""}`}
+            className={"language-switcher" + (languageOpen ? " is-open" : "")}
             ref={languageRef}
           >
             <button
               className="language-trigger"
               type="button"
               aria-label={content.ui.language}
-              aria-haspopup="true"
               aria-expanded={languageOpen}
+              aria-controls="language-options"
               onClick={onToggleLanguage}
             >
               <span>{labels[locale]}</span>
@@ -92,18 +98,13 @@ export function Header({
                 />
               </svg>
             </button>
-            <div
-              className="language-menu"
-              role="menu"
-              aria-label={content.ui.language}
-            >
+            <div id="language-options" className="language-menu">
               {localeOrder[locale].map((item) => (
                 <a
                   key={item}
                   className="language-option"
                   href={routes[item]}
-                  role="menuitem"
-                  aria-current={item === locale || undefined}
+                  aria-current={item === locale ? "page" : undefined}
                   onClick={(event) => onLanguageChange(event, item)}
                 >
                   {labels[item]}
@@ -111,20 +112,20 @@ export function Header({
               ))}
             </div>
           </div>
+
           <button
-            className={`hamburger ${menuOpen ? "active" : ""}`}
+            className={"menu-toggle" + (menuOpen ? " is-open" : "")}
             type="button"
             aria-label={menuOpen ? content.ui.closeMenu : content.ui.openMenu}
-            aria-controls="nav-menu"
+            aria-controls="site-navigation"
             aria-expanded={menuOpen}
             onClick={onToggleMenu}
           >
-            <span />
-            <span />
-            <span />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
           </button>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

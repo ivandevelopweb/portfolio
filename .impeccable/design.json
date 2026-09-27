@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-25T17:37:16Z",
+  "title": "Design System: Ivan Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Muted Periwinkle",
+        "canonical": "#9aafff",
+        "tonalRamp": [
+          "oklch(15% 0.117 272)",
+          "oklch(25% 0.117 272)",
+          "oklch(35% 0.117 272)",
+          "oklch(45% 0.117 272)",
+          "oklch(55% 0.117 272)",
+          "oklch(65% 0.117 272)",
+          "oklch(80% 0.117 272)",
+          "oklch(95% 0.117 272)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Pale Periwinkle",
+        "canonical": "#b5c4ff",
+        "tonalRamp": [
+          "oklch(15% 0.085 273)",
+          "oklch(25% 0.085 273)",
+          "oklch(35% 0.085 273)",
+          "oklch(45% 0.085 273)",
+          "oklch(55% 0.085 273)",
+          "oklch(65% 0.085 273)",
+          "oklch(80% 0.085 273)",
+          "oklch(95% 0.085 273)"
+        ]
+      },
+      "primary-ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "canonical": "#0c101a",
+        "tonalRamp": [
+          "oklch(15% 0.022 267)",
+          "oklch(25% 0.022 267)",
+          "oklch(35% 0.022 267)",
+          "oklch(45% 0.022 267)",
+          "oklch(55% 0.022 267)",
+          "oklch(65% 0.022 267)",
+          "oklch(80% 0.022 267)",
+          "oklch(95% 0.022 267)"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Near-Black Canvas",
+        "canonical": "#090a0c",
+        "tonalRamp": [
+          "oklch(15% 0.005 264)",
+          "oklch(25% 0.005 264)",
+          "oklch(35% 0.005 264)",
+          "oklch(45% 0.005 264)",
+          "oklch(55% 0.005 264)",
+          "oklch(65% 0.005 264)",
+          "oklch(80% 0.005 264)",
+          "oklch(95% 0.005 264)"
+        ]
+      },
+      "neutral-surface": {
+        "role": "neutral",
+        "displayName": "Graphite Surface",
+        "canonical": "#101216",
+        "tonalRamp": [
+          "oklch(15% 0.009 264)",
+          "oklch(25% 0.009 264)",
+          "oklch(35% 0.009 264)",
+          "oklch(45% 0.009 264)",
+          "oklch(55% 0.009 264)",
+          "oklch(65% 0.009 264)",
+          "oklch(80% 0.009 264)",
+          "oklch(95% 0.009 264)"
+        ]
+      },
+      "neutral-surface-raised": {
+        "role": "neutral",
+        "displayName": "Raised Graphite",
+        "canonical": "#14171d",
+        "tonalRamp": [
+          "oklch(15% 0.013 264)",
+          "oklch(25% 0.013 264)",
+          "oklch(35% 0.013 264)",
+          "oklch(45% 0.013 264)",
+          "oklch(55% 0.013 264)",
+          "oklch(65% 0.013 264)",
+          "oklch(80% 0.013 264)",
+          "oklch(95% 0.013 264)"
+        ]
+      },
+      "neutral-text": {
+        "role": "neutral",
+        "displayName": "Cool White",
+        "canonical": "#f1f2f4",
+        "tonalRamp": [
+          "oklch(15% 0.003 265)",
+          "oklch(25% 0.003 265)",
+          "oklch(35% 0.003 265)",
+          "oklch(45% 0.003 265)",
+          "oklch(55% 0.003 265)",
+          "oklch(65% 0.003 265)",
+          "oklch(80% 0.003 265)",
+          "oklch(95% 0.003 265)"
+        ]
+      },
+      "neutral-muted": {
+        "role": "neutral",
+        "displayName": "Slate Gray",
+        "canonical": "#b0b4bd",
+        "tonalRamp": [
+          "oklch(15% 0.014 267)",
+          "oklch(25% 0.014 267)",
+          "oklch(35% 0.014 267)",
+          "oklch(45% 0.014 267)",
+          "oklch(55% 0.014 267)",
+          "oklch(65% 0.014 267)",
+          "oklch(80% 0.014 267)",
+          "oklch(95% 0.014 267)"
+        ]
+      },
+      "neutral-quiet": {
+        "role": "neutral",
+        "displayName": "Quiet Slate",
+        "canonical": "#848a96",
+        "tonalRamp": [
+          "oklch(15% 0.019 264)",
+          "oklch(25% 0.019 264)",
+          "oklch(35% 0.019 264)",
+          "oklch(45% 0.019 264)",
+          "oklch(55% 0.019 264)",
+          "oklch(65% 0.019 264)",
+          "oklch(80% 0.019 264)",
+          "oklch(95% 0.019 264)"
+        ]
+      },
+      "neutral-line": {
+        "role": "neutral",
+        "displayName": "Hairline Slate",
+        "canonical": "#292d35",
+        "tonalRamp": [
+          "oklch(15% 0.016 264)",
+          "oklch(25% 0.016 264)",
+          "oklch(35% 0.016 264)",
+          "oklch(45% 0.016 264)",
+          "oklch(55% 0.016 264)",
+          "oklch(65% 0.016 264)",
+          "oklch(80% 0.016 264)",
+          "oklch(95% 0.016 264)"
+        ]
+      },
+      "neutral-line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Slate Border",
+        "canonical": "#373c47",
+        "tonalRamp": [
+          "oklch(15% 0.020 266)",
+          "oklch(25% 0.020 266)",
+          "oklch(35% 0.020 266)",
+          "oklch(45% 0.020 266)",
+          "oklch(55% 0.020 266)",
+          "oklch(65% 0.020 266)",
+          "oklch(80% 0.020 266)",
+          "oklch(95% 0.020 266)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Large hero proposition."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section, about, and contact headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project and supporting section titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable descriptive copy."
+      },
+      "field": {
+        "displayName": "Form Field",
+        "purpose": "Typed content inside contact inputs and text areas."
+      },
+      "navigation": {
+        "displayName": "Navigation",
+        "purpose": "Desktop navigation links and related controls."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Primary and secondary action labels."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, navigation, captions, and form labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "locale-menu",
+        "value": "0 14px 36px rgba(0, 0, 0, 0.34)",
+        "purpose": "The compact floating language menu only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "quiet-control",
+        "value": "180ms cubic-bezier(0.2, 0.75, 0.25, 1)",
+        "purpose": "Button, link, and control state transitions."
+      },
+      {
+        "name": "screenshot-hover",
+        "value": "400ms cubic-bezier(0.2, 0.75, 0.25, 1)",
+        "purpose": "Very slight scale on project screenshots."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms; one iteration",
+        "purpose": "Honor the reduced-motion media preference."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-navigation",
+        "value": "820px"
+      },
+      {
+        "name": "mobile-layout",
+        "value": "620px"
+      },
+      {
+        "name": "small-phone-actions",
+        "value": "420px"
+      },
+      {
+        "name": "tablet-tuning",
+        "value": "1000px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The filled action used for the most direct next step.",
+      "html": "<button class=\"ds-button-primary\" type=\"button\">Explore projects</button>",
+      "css": ".ds-button-primary { display:inline-flex; min-height:50px; align-items:center; justify-content:center; gap:13px; padding:0 18px; border:1px solid transparent; border-radius:var(--radius-sm); background:var(--accent); color:var(--accent-ink); cursor:pointer; font:700 13px/1.2 Manrope,sans-serif; transition:color 180ms var(--ease-out), background-color 180ms var(--ease-out), transform 180ms var(--ease-out); } .ds-button-primary:hover { background:var(--accent-hover); transform:translateY(-1px); } .ds-button-primary:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "The outlined alternative beside the primary action.",
+      "html": "<button class=\"ds-button-secondary\" type=\"button\">Discuss a project</button>",
+      "css": ".ds-button-secondary { display:inline-flex; min-height:50px; align-items:center; justify-content:center; padding:0 18px; border:1px solid var(--line-strong); border-radius:var(--radius-sm); background:rgba(12,13,16,.62); color:var(--text); cursor:pointer; font:700 13px/1.2 Manrope,sans-serif; transition:color 180ms var(--ease-out), border-color 180ms var(--ease-out), background-color 180ms var(--ease-out), transform 180ms var(--ease-out); } .ds-button-secondary:hover { border-color:var(--accent); color:var(--accent-hover); transform:translateY(-1px); } .ds-button-secondary:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }"
+    },
+    {
+      "name": "Contact Field",
+      "kind": "input",
+      "refersTo": "text-field",
+      "description": "A labeled text control in the contact form.",
+      "html": "<label class=\"ds-field-label\" for=\"ds-contact\">Project details</label><input class=\"ds-text-field\" id=\"ds-contact\" type=\"text\" placeholder=\"What would you like to build?\" />",
+      "css": ".ds-field-label { display:block; margin-bottom:8px; color:var(--muted); font:700 11px/1.4 Manrope,sans-serif; } .ds-text-field { display:block; width:100%; min-height:48px; padding:11px 13px; border:1px solid var(--line-strong); border-radius:var(--radius-sm); background:rgba(14,16,20,.88); color:var(--text); font:400 13px/1.5 Manrope,sans-serif; } .ds-text-field::placeholder { color:var(--quiet); opacity:1; } .ds-text-field:focus { border-color:var(--accent); background:#101319; outline:none; } .ds-text-field:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "refersTo": "navigation-link",
+      "description": "A quiet link row with a clear current-section state.",
+      "html": "<nav class=\"ds-navigation\" aria-label=\"Primary\"><a class=\"ds-nav-link\" href=\"#\">Projects</a><a class=\"ds-nav-link is-current\" href=\"#\" aria-current=\"location\">Services</a><a class=\"ds-nav-link\" href=\"#\">About</a></nav>",
+      "css": ".ds-navigation { display:flex; align-items:center; gap:clamp(22px,3vw,42px); } .ds-nav-link { display:inline-flex; min-height:42px; align-items:center; color:var(--muted); font:600 13px/1.4 Manrope,sans-serif; text-decoration:none; transition:color 180ms var(--ease-out); } .ds-nav-link:hover, .ds-nav-link.is-current { color:var(--text); } .ds-nav-link:focus-visible { outline:2px solid var(--accent); outline-offset:4px; } @media (max-width:820px) { .ds-navigation { display:grid; gap:0; } .ds-nav-link { min-height:49px; font-size:14px; } }"
+    },
+    {
+      "name": "Project Screenshot Frame",
+      "kind": "card",
+      "refersTo": "project-frame",
+      "description": "A large, restrained frame that lets a real project screenshot carry the proof.",
+      "html": "<a class=\"ds-project-frame\" href=\"#\"><img src=\"/velora.png\" alt=\"Velora e-commerce project screenshot\" /></a>",
+      "css": ".ds-project-frame { display:block; overflow:hidden; border:1px solid var(--line); border-radius:var(--radius-md); background:var(--surface); } .ds-project-frame img { display:block; width:100%; aspect-ratio:1.58; object-fit:cover; object-position:center top; transition:transform 400ms var(--ease-out); } .ds-project-frame:hover img { transform:scale(1.015); } .ds-project-frame:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Technical Partner",
+    "overview": "The visual system gives business owners a calm, capable first impression. Near-black surfaces, precise sans-serif typography, and clear project proof create a technical character without resorting to spectacle. The interface stays direct and legible so the offer, real work, and contact paths carry the weight.\n\nA very faint perspective grid is the recurring background signature. Fine dividers, open space, restrained corners, and large project imagery keep that motif behind the content. The portrait supplies a natural human counterpoint to the measured layout.",
+    "keyCharacteristics": [
+      "Near-black surfaces and cool-white type.",
+      "One muted periwinkle accent for actions, focus, and small markers.",
+      "Manrope typography, fine separators, restrained corners, and large real project imagery.",
+      "A low-contrast perspective grid that remains behind text and screenshots."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Keep the cool blue accent scarce and purposeful; let project images and copy remain the main visual proof.",
+        "section": "colors"
+      },
+      {
+        "name": "The Content-First Grid Rule",
+        "body": "The perspective grid is a quiet page-wide signature; text and project screenshots must remain more noticeable than its lines.",
+        "section": "layout"
+      }
+    ],
+    "dos": [
+      "Do use the accent for one clear action, keyboard focus, and limited markers.",
+      "Do preserve the faint perspective grid across the page with content visually in front.",
+      "Do give real project screenshots generous space and alternate their alignment for rhythm.",
+      "Do retain readable contrast, visible focus, reduced-motion support, and comfortable mobile spacing.",
+      "Do keep locale and contact controls clear in all three language variants."
+    ],
+    "donts": [
+      "Don't introduce neon cyan, several competing bright accents, glow-heavy controls, or decorative particles.",
+      "Don't use gradient headlines, a custom cursor, a typing effect, or a noisy animated background.",
+      "Don't let the grid compete with text or screenshots.",
+      "Don't add fake ratings, outcome figures, testimonials, or invented experience claims.",
+      "Don't turn every section into a rounded card or pill badge."
+    ]
+  }
+}
